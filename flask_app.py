@@ -24,9 +24,9 @@ model = model.to(device)
 model.load_state_dict(torch.load('./maskrcnn_resnet50_fpn_20',map_location=torch.device('cpu')))
 model = model.eval()
 
-token = '5357836821:AAHW6uKeprzczTqGAB_qMCeM3WLiVpOnjHY'
+token = '******'
 
-secret = '6Eel28mxdWKDVfBoD6MRIuYLhqq21YwI'
+secret = '*******'
 bot = telepot.Bot(token)
 bot.setWebhook("https://bgremovaltelegram.herokuapp.com/{}".format(secret), max_connections=1)
 
