@@ -18,7 +18,7 @@ def removeBG(filepath):
     model.roi_heads.mask_predictor = MaskRCNNPredictor(in_features_mask,hidden_layer,num_classes);
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu');
     model = model.to(device);
-    model.load_state_dict(torch.load('./savestates/maskrcnn_resnet50_fpn_20',map_location=torch.device(device)));
+    model.load_state_dict(torch.load('./maskrcnn_resnet50_fpn_8',map_location=torch.device(device)));
     model = model.eval();
     
     img = transforms.ToTensor()(Image.open(filepath));
