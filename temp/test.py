@@ -1,0 +1,3 @@
+import BGRemovalTrain;
+
+BGRemovalTrain.main();

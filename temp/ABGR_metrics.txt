@@ -1,0 +1,44 @@
+Test:  [   0/1100]  eta: 3:02:45  model_time: 9.8590 (9.8590)  evaluator_time: 0.0625 (0.0625)  time: 9.9689  data: 0.0318  max mem: 563
+Test:  [ 100/1100]  eta: 0:20:42  model_time: 1.0010 (1.1597)  evaluator_time: 0.0469 (0.0547)  time: 0.9299  data: 0.0156  max mem: 599
+Test:  [ 200/1100]  eta: 0:19:46  model_time: 1.3445 (1.2431)  evaluator_time: 0.0313 (0.0509)  time: 1.2368  data: 0.0133  max mem: 599
+Test:  [ 300/1100]  eta: 0:18:25  model_time: 1.3551 (1.3065)  evaluator_time: 0.0318 (0.0517)  time: 1.3508  data: 0.0141  max mem: 599
+Test:  [ 400/1100]  eta: 0:16:15  model_time: 1.3549 (1.3205)  evaluator_time: 0.0469 (0.0509)  time: 1.3814  data: 0.0126  max mem: 600
+Test:  [ 500/1100]  eta: 0:14:02  model_time: 1.3613 (1.3331)  evaluator_time: 0.0469 (0.0501)  time: 1.4207  data: 0.0117  max mem: 600
+Test:  [ 600/1100]  eta: 0:11:46  model_time: 1.3479 (1.3428)  evaluator_time: 0.0469 (0.0504)  time: 1.3759  data: 0.0102  max mem: 600
+Test:  [ 700/1100]  eta: 0:09:29  model_time: 1.3792 (1.3539)  evaluator_time: 0.0469 (0.0511)  time: 1.5512  data: 0.0141  max mem: 600
+Test:  [ 800/1100]  eta: 0:07:06  model_time: 1.3718 (1.3527)  evaluator_time: 0.0469 (0.0509)  time: 1.5204  data: 0.0144  max mem: 600
+Test:  [ 900/1100]  eta: 0:04:44  model_time: 1.2735 (1.3521)  evaluator_time: 0.0441 (0.0510)  time: 1.2949  data: 0.0475  max mem: 600
+Test:  [1000/1100]  eta: 0:02:23  model_time: 1.3766 (1.3562)  evaluator_time: 0.0421 (0.0519)  time: 1.4848  data: 0.0086  max mem: 600
+Test:  [1099/1100]  eta: 0:00:01  model_time: 1.4606 (1.3541)  evaluator_time: 0.0568 (0.0522)  time: 1.3193  data: 0.0105  max mem: 600
+Test: Total time: 0:26:15 (1.4327 s / it)
+Averaged stats: model_time: 1.4606 (1.3541)  evaluator_time: 0.0568 (0.0522)
+Accumulating evaluation results...
+DONE (t=1.50s).
+Accumulating evaluation results...
+DONE (t=1.48s).
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.446
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.694
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.378
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.489
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.489
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.431
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.582
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.589
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.469
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.615
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644
+IoU metric: segm
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.407
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.659
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.446
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.254
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.426
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.509
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.534
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.539
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.367
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.556
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.606
