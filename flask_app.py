@@ -24,41 +24,49 @@ model = model.to(device)
 model.load_state_dict(torch.load('./maskrcnn_resnet50_fpn_20',map_location=torch.device('cpu')))
 model = model.eval()
 
-token = '********'
+token = '5357836821:AAHW6uKeprzczTqGAB_qMCeM3WLiVpOnjHY'
 
-secret = '********'
+secret = '6Eel28mxdWKDVfBoD6MRIuYLhqq21YwI'
 bot = telepot.Bot(token)
-bot.setWebhook("https://*********.herokuapp.com/{}".format(secret), max_connections=1)
+bot.setWebhook("https://bgremovaltelegram.herokuapp.com/{}".format(secret), max_connections=1)
 
 app = Flask(__name__)
 
-def bgremoval():
-    update = request.get_json()
-    if "message" in update:
-        chat_id = update["message"]["chat"]["id"]
-        if "photo" in update["message"]:
-            file_path = bot.getFile(update["message"]["photo"][-1]['file_id'])['file_path']
-            content = requests.get('https://api.telegram.org/file/bot' + token + '/' + file_path).content
-            image = Image.open(BytesIO(content))
-            img = transforms.ToTensor()(image)
-            image.close()
-            bot.sendMessage(chat_id, 'start computing')
-            with torch.no_grad():
-                output = model(torch.unsqueeze(img,dim=0))
-            bot.sendMessage(chat_id, 'end computing')
-            mask = (output[0]['masks'][output[0]['scores'].argmax()] >= 0.5).float()[0]
-            oimg = transforms.ToPILImage()(img[:] * mask)
-            b = BytesIO()
-            oimg.save(b,'JPEG')
-            oimg.close()
-            b.seek(0)
-            bot.sendPhoto(chat_id,b)
 
 @app.route('/{}'.format(secret), methods=["POST"])
 def telegram_webhook():
-    bgremoval()
-    gc.collect()
     return "OK"
+
+@app.after_request
+def after_request(response):
+    update = request.get_json()
+    @response.call_on_close
+    def bgremoval():
+        if "message" in update:
+            chat_id = update["message"]["chat"]["id"]
+            if "photo" in update["message"]:
+                file_path = bot.getFile(update["message"]["photo"][-1]['file_id'])['file_path']
+                content = requests.get('https://api.telegram.org/file/bot' + token + '/' + file_path).content
+                image = Image.open(BytesIO(content))
+                img = transforms.ToTensor()(image)
+                image.close()
+                bot.sendMessage(chat_id, 'start computing')
+                with torch.no_grad():
+                    output = model(torch.unsqueeze(img,dim=0))
+                bot.sendMessage(chat_id, 'end computing')
+                scores = output[0]['scores']
+                if len(scores) == 0:
+                    bot.sendMessage(chat_id, 'nothing detected(')
+                    return
+                mask = (output[0]['masks'][output[0]['scores'].argmax()] >= 0.5).float()[0]
+                oimg = transforms.ToPILImage()(img[:] * mask)
+                b = BytesIO()
+                oimg.save(b,'JPEG')
+                oimg.close()
+                b.seek(0)
+                bot.sendPhoto(chat_id,b)
+                gc.collect()
+    return response
     
 if __name__ == '__main__':
     app.run(debug=False,port=os.getenv('PORT',5000))
