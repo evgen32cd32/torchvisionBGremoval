@@ -25,7 +25,7 @@
 - Test dataset: 1100
 
 ## Нейросеть
-Решение строится на сверточных нейроных сетях (RNN) и алгоритме U-net, развертывающем изображение в маску. Пример [реализации](https://github.com/YunanWu2168/Background-removal-using-deep-learning). Также существует еще методология ResNet - использование остаточных значений на следующих слоях сети.
+Решение строится на сверточных нейроных сетях (CNN) и алгоритме U-net, развертывающем изображение в маску. Пример [реализации](https://github.com/YunanWu2168/Background-removal-using-deep-learning). Также существует еще методология ResNet - использование остаточных значений на следующих слоях сети.
 
 Мое решение основано на [туториале](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html), используется подготовленная **maskrcnn_resnet50_fpn** и тренируется только последний слой head (fine tuning). Также используются [утилиты](https://github.com/pytorch/vision/tree/main/references/detection).
 
