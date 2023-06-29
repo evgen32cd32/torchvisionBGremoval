@@ -9,7 +9,7 @@
 [8 epoch params archive](https://github.com/evgen32cd32/torchvisionBGremoval/tree/main/8%20epoch%20params%20archive) - разбитый zip архив файла с параметрами модели
 
 [flask_app.py](flask_app.py) - код для телеграм-бота ~~[@evgensbgremovalbot](https://t.me/evgensbgremovalbot) на heroku.~~ Есть проблемы с использованием памяти, если он начинает потреблять больше ~2Гб, heroku его перезагружает. Также если им некоторое время не пользоваться - сервис засыпает, требуется время, чтобы подняться.  
-К сожалению, [Heroku отключает все проекты на бесплатных хостингах](https://blog.heroku.com/next-chapter), поэтому бо удален. Буду ли его восстанавливать - не знаю.
+К сожалению, [Heroku отключает все проекты на бесплатных хостингах](https://blog.heroku.com/next-chapter), поэтому бот удален. Буду ли его восстанавливать - не знаю.
 
 
 ## Датасет
